@@ -7,23 +7,23 @@
   <parent>
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-parent</artifactId>
-    <!-- Keep Boot 3.2.x to be compatible with Spring Cloud 2023.0.x -->
+    <!-- Keep Boot 3.2.x with Spring Cloud 2023.0.x -->
     <version>3.2.5</version>
     <relativePath/>
   </parent>
 
   <groupId>com.bank</groupId>
-  <artifactId>account-service</artifactId>
+  <artifactId>transaction-service</artifactId>
   <version>0.0.1-SNAPSHOT</version>
-  <name>account-service</name>
-  <description>Account Service</description>
+  <name>transaction-service</name>
+  <description>Transaction Service</description>
 
   <properties>
     <java.version>17</java.version>
     <spring-cloud.version>2023.0.1</spring-cloud.version>
   </properties>
 
-  <!-- Manage Spring Cloud BOM -->
+  <!-- Spring Cloud BOM -->
   <dependencyManagement>
     <dependencies>
       <dependency>
@@ -37,7 +37,7 @@
   </dependencyManagement>
 
   <dependencies>
-    <!-- Spring Boot starters -->
+    <!-- Starters -->
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-web</artifactId>
@@ -81,10 +81,14 @@
       <scope>runtime</scope>
     </dependency>
 
-    <!-- Eureka client -->
+    <!-- Service discovery + Feign -->
     <dependency>
       <groupId>org.springframework.cloud</groupId>
       <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework.cloud</groupId>
+      <artifactId>spring-cloud-starter-openfeign</artifactId>
     </dependency>
 
     <!-- Lombok -->
@@ -94,7 +98,7 @@
       <optional>true</optional>
     </dependency>
 
-    <!-- Test -->
+    <!-- Tests -->
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-test</artifactId>
