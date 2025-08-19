@@ -1,15 +1,16 @@
 package com.bank.userservice.model;
 
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 @Entity
 @Table(name = "users")
 @Getter
 @Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 public class User {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -17,8 +18,7 @@ public class User {
     @Column(unique = true, nullable = false)
     private String username;
 
-    @Column(nullable = false)
     private String password;
 
-    private String role; // e.g. ROLE_ADMIN, ROLE_USER
+    private String role;
 }
